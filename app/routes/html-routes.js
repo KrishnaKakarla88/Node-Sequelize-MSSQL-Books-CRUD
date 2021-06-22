@@ -31,13 +31,8 @@ router.get('/add', (req, res) => {
 });
 
 // add route loads the add.html page, where users can enter new books to the db
-router.get('/books/:id', (req, res) => {
+router.get('/books', (req, res) => {
   console.log("reached /books/id route");
-  res.sendFile(path.join(__dirname, '../public/update.html'));
-});
-
-// add route loads the add.html page, where users can enter new books to the db
-router.get('/update', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/update.html'));
 });
 

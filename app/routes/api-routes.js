@@ -105,10 +105,22 @@ router.post("/new", async (req, res) => {
   res.send(bookResults);
 });
 
-// Get all "short" books (books 150 pages or less)
+// Get books with specific ID
 router.delete("/book/:id", async (req, res) => {
   // console.log("author :::", req.params.id);
   const bookResults = await Book.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  // console.log("bookResults ::: ", bookResults);
+  res.json(bookResults);
+});
+
+// put data for single book
+router.put("/book/:id", async (req, res) => {
+  // console.log("update book with id :::", req.params.id);
+  const bookResults = await Book.update(req.body, {
     where: {
       id: req.params.id,
     },

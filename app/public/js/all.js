@@ -32,7 +32,7 @@ $.get("/api/books", function(data) {
 
     $(".update").click(function () {  
       console.log("update button clicked, ", `/books/${$(this).attr("data-id")}`);
-      document.location.replace(`/books/${$(this).attr("data-id")}`);
+      document.location.replace(`/books?id=${$(this).attr("data-id")}`);
       // $.ajax({
       //   type: "GET",
       //   url: `/books/${$(this).attr("data-id")}`,        
