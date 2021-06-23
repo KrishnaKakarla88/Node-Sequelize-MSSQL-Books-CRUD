@@ -1,21 +1,10 @@
 // The code in add.js handles what happens when the user clicks the "Add a book" button.
 // When user clicks add-btn
 $(document).ready(function () {
-  console.log("window.location ::: ", GetParameterValues("id"));
+  var url = window.location.href.split("/");
+  // console.log("window.location ::: ", url[url.length - 1]);
 
-  function GetParameterValues(param) {
-    var url = window.location.href
-      .slice(window.location.href.indexOf("?") + 1)
-      .split("&");
-    for (var i = 0; i < url.length; i++) {
-      var urlparam = url[i].split("=");
-      if (urlparam[0] == param) {
-        return urlparam[1];
-      }
-    }
-  }
-
-  $.get("/api/books/" + GetParameterValues("id"), function (data) {
+  $.get("/api/books/" + url[url.length - 1], function (data) {
     console.log(data);
     $("#title").val(data[0].title);
     $("#author").val(data[0].author);
@@ -52,7 +41,7 @@ $(document).ready(function () {
 
       $.ajax({
         type: "PUT",
-        url: "/api/book/" + GetParameterValues("id"),
+        url: "/api/book/" + url[url.length - 1],
         data: newBook,
         success: function (data) {
           $("#message").fadeIn().html("Book updated to Databse");
