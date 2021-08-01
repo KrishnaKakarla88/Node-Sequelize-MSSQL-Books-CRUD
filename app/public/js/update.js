@@ -1,16 +1,27 @@
 // The code in add.js handles what happens when the user clicks the "Add a book" button.
 // When user clicks add-btn
 $(document).ready(function () {
-  var url = window.location.href.split("/");
-  // console.log("window.location ::: ", url[url.length - 1]);
+  var url = window.location.href.split("/").pop();
+  // console.log("window.location ::: ", url);
 
-  $.get("/api/books/" + url[url.length - 1], function (data) {
+  $.get("/api/books/" + url, function (data) {
     console.log(data);
     $("#title").val(data[0].title);
     $("#author").val(data[0].author);
     $("#genre").val(data[0].genre);
     $("#pages").val(data[0].pages);
   });
+
+  // await fetch(`/api/post/${postId}`, {
+  //   method: 'PUT',
+  //   body: JSON.stringify({
+  //     title,
+  //     body
+  //   }),
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // });
 
   $("#add-btn").on("click", function (event) {
     event.preventDefault();
@@ -41,7 +52,7 @@ $(document).ready(function () {
 
       $.ajax({
         type: "PUT",
-        url: "/api/book/" + url[url.length - 1],
+        url: "/api/book/" + url,
         data: newBook,
         success: function (data) {
           $("#message").fadeIn().html("Book updated to Databse");

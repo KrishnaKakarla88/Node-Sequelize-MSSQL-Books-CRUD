@@ -1,16 +1,10 @@
 # Sequelize Library
 
-In this activity, you will use Sequelize query methods to create the required routes.
+This app uses Sequelize query methods & MS SQL to create the required routes.
 
-## Instructions
+## User stories
 
 * Create a `sequelize_library` DB.
-
-* Navigate to the [Unsolved](Unsolved/) folder and run `npm install` in your terminal.
-
-* Be sure to modify the [connection.js](Unsolved/app/config/connection.js) file to include your MySQL user/password information.
-
-* In the [api-routes.js](Unsolved/app/routes/api-routes.js) file, modify the following routes to use Sequelize query methods:
 
   * Get all books
 
@@ -24,8 +18,14 @@ In this activity, you will use Sequelize query methods to create the required ro
 
 ## Hint(s)
 
-* You may need to consult the [Sequelize Manual on Operators](https://sequelize.org/master/manual/model-querying-basics.html#operators) for the last two queries involving book pages.
+* Consult the [Sequelize Manual on Operators](https://sequelize.org/master/manual/model-querying-basics.html#operators).
 
-## Bonus
 
-* Display the "long" books in descending order and the "short" books in ascending order.
+## Review
+
+* The URL of the functional, deployed application.
+
+* URL of the GitHub repository (https://github.com/KrishnaKakarla88/Node-Sequelize-MSSQL-Books-CRUD)
+
+### To clone this repository
+* git clone https://github.com/KrishnaKakarla88/Node-Sequelize-MSSQL-Books-CRUD
